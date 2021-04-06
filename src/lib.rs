@@ -23,7 +23,7 @@
 //! It will create a project that will call `wasm-builder` to prevent any dependencies
 //! from `wasm-builder` influencing the main project's dependencies.
 //!
-//! For more information see <https://crates.io/substrate-wasm-builder>
+//! For more information see <https://crates.io/wasm-builder>
 
 use std::{
 	env, process::{Command, self}, fs, path::{PathBuf, Path}, hash::{Hash, Hasher},
@@ -390,7 +390,8 @@ fn create_project(
 				edition = "2018"
 
 				[dependencies]
-				substrate-wasm-builder = {{ {wasm_builder_source} }}
+				
+			-wasm-builder = {{ {wasm_builder_source} }}
 
 				[workspace]
 			"#,
@@ -402,7 +403,7 @@ fn create_project(
 		project_folder.join("src/main.rs"),
 		format!(
 			r#"
-				use substrate_wasm_builder::build_project_with_default_rustflags;
+				use wasm_builder::build_project_with_default_rustflags;
 
 				fn main() {{
 					build_project_with_default_rustflags(
