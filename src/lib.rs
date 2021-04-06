@@ -391,7 +391,7 @@ fn create_project(
 
 				[dependencies]
 				
-			-wasm-builder = {{ {wasm_builder_source} }}
+			wasm-builder = {{ {wasm_builder_source} }}
 
 				[workspace]
 			"#,
